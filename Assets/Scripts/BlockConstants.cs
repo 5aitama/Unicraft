@@ -92,5 +92,19 @@ namespace MinecraftLike
             // Bottom right
             new float2(1, 0),
         };
+
+        /// <summary>
+        /// Array that contains face direction in the right order.
+        /// Correspond to normals but integers for cpu otpimization.
+        /// </summary>
+        public static readonly int3[] FaceDirections = new int3[]
+        {
+            new int3( 0,  0, -1),
+            new int3( 1,  0,  0),
+            new int3( 0,  0,  1),
+            new int3(-1,  0,  0),
+            new int3( 0,  1,  0),
+            new int3( 0, -1,  0),
+        };
     }
 }
