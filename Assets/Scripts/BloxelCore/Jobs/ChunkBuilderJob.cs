@@ -14,7 +14,9 @@ namespace MinecraftLike
         [ReadOnly]
         public int3 size;
 
-        //[NativeDisableParallelForRestriction]
+        /// <summary>
+        /// Blocks
+        /// </summary>
         [ReadOnly]
         public NativeArray<RawBlock> blocks;
 
@@ -54,8 +56,6 @@ namespace MinecraftLike
 
                 BlockBuilderJob.AddFaceVertices(faceIndex, localPos - 1, 1f, ref vertices);
                 BlockBuilderJob.AddFaceTriangles(0, ref triangles);
-
-                // System.Threading.Interlocked.Increment(ref inc);
             }
         }
 

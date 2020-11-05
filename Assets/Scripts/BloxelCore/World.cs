@@ -33,7 +33,7 @@ namespace MinecraftLike
             }
 
             var chunk = new GameObject($"Chunk {at}").AddComponent<Chunk>();
-
+            chunk.transform.position = (float3)at;
             _chunks.Add(at, chunk);
             
             return true;
@@ -68,7 +68,6 @@ namespace MinecraftLike
 
             for(int i = 0, c = 0; i < _scheduledChunks.Count && c < MaxScheduledChunksPerFrames; i++, c++)
             {
-                // Debug.Log(_scheduledChunks[i].Item2.IsCompleted);
                 if(_scheduledChunks[i].Item2.IsCompleted)
                 {
                     _scheduledChunks[i].Item2.Complete();

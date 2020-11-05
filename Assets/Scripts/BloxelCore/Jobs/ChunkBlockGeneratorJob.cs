@@ -40,7 +40,7 @@ namespace MinecraftLike
             var value = 0f;
 
             var pos = (float2)(localPos + position).xz;
-            var n = (1f + noise.snoise(pos * 0.05f)) * .5f * 32;
+            var n = (1f + noise.snoise(pos * 0.01f)) * .5f * 32;
             value = n - worldPos.y;
 
             if(minEdges.x || minEdges.y || minEdges.z || maxEdges.x || maxEdges.y || maxEdges.z)
