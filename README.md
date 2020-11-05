@@ -22,3 +22,4 @@ Load the folder `minecraft-like` in Unity or Unity Hub. You're good to go!
 
 ## Challenges
 
+So many of them!
