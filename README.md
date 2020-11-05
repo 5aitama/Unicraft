@@ -24,6 +24,6 @@ git clone https://gitlab.com/5aitama1/minecraft-like.git
 
 Load the folder `minecraft-like` in Unity or Unity Hub. You're good to go!
 
-## Challenges
+## Challenges
 
 So many of them!
