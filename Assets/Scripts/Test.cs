@@ -17,7 +17,7 @@ namespace MinecraftLike
                     // Construct it...
                     GameManager.World.ConstructChunk(at: position);
                 
-                // And that's it :) you have create a chunk!!!!
+                // And that's it :) you have created a chunk!!!!
             }
         }
     }
