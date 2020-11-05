@@ -19,7 +19,14 @@ This is a multi-threaded minecraft-like game created with the Unity game engine.
 Clone the repo:
 
 ```sh
+# From Gitlab
 git clone https://gitlab.com/5aitama1/minecraft-like.git
+
+# From Github
+git clone https://github.com/5aitama/Unicraft.git
+
+# With GitHub CLI
+gh repo clone 5aitama/Unicraft
 ```
 
 Load the folder `minecraft-like` in Unity or Unity Hub. You're good to go!
