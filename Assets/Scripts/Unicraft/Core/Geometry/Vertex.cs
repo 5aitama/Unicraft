@@ -4,7 +4,7 @@ using Unity.Collections;
 
 using System.Runtime.InteropServices;
 
-namespace MinecraftLike
+namespace Unicraft.Core.Geometry
 {
     /// <summary>
     /// Vertex representation (without color)

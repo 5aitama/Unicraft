@@ -1,6 +1,6 @@
 using Unity.Mathematics;
 
-namespace MinecraftLike
+namespace Unicraft.Core
 {
     /// <summary>
     /// Class that contains stuff to create a block.

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Unity.Mathematics;
 
-namespace MinecraftLike
+namespace Unicraft.Core
 {
     public class GameManager : MonoBehaviour, ISerializationCallbackReceiver
     {

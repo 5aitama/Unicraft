@@ -1,8 +1,11 @@
 ﻿using Unity.Collections;
 using Unity.Mathematics;
-using MinecraftLike.Extensions.Mathematics;
 
-namespace MinecraftLike
+using Unicraft.Core.Jobs;
+using Unicraft.Core.Geometry;
+using Unicraft.Extensions.Mathematics;
+
+namespace Unicraft.Core.Debugger
 {
     public class ChunkDebugger : Debugger
     {

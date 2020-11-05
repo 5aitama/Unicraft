@@ -1,6 +1,6 @@
 using Unity.Jobs;
 
-namespace MinecraftLike
+namespace Unicraft.Core
 {
     public interface IQuickJob
     {

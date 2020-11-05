@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using Unity.Collections;
 
-namespace MinecraftLike
+namespace Unicraft.Core
 {
     public interface INoiseBehaviour
     {

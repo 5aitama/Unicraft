@@ -1,6 +1,6 @@
 using Unity.Mathematics;
 
-namespace MinecraftLike.Extensions.Mathematics
+namespace Unicraft.Extensions.Mathematics
 {
     /// <summary>
     /// Extension methods for math structs/classes

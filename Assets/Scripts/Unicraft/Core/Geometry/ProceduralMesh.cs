@@ -5,7 +5,7 @@ using Unity.Mathematics;
 using Unity.Jobs;
 using Unity.Burst;
 
-namespace MinecraftLike
+namespace Unicraft.Core.Geometry
 {
     /// <summary>
     /// Methods to create/update mesh easily

@@ -1,6 +1,6 @@
 using Unity.Mathematics;
 
-namespace MinecraftLike
+namespace Unicraft.Core.Geometry
 {
     /// <summary>
     /// Triangle representation.

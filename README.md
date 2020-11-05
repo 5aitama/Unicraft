@@ -1,5 +1,7 @@
 # Minecraft Like
 
+![Unity version](https://img.shields.io/badge/Unity-2020.1.9f1-green)
+
 ## Description
 
 This is a multi-threaded minecraft-like game created with the Unity game engine. The purpose is to play with low-level issues like chunk creation and rendering optimization, striving for maximum performance.

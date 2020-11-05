@@ -6,7 +6,7 @@ using Unity.Collections;
 using Unity.Mathematics;
 using Unity.Jobs;
 
-namespace MinecraftLike
+namespace Unicraft.Core
 {
     public class World
     {

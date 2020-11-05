@@ -2,9 +2,9 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Collections;
 
-using MinecraftLike.Extensions.Mathematics;
+using Unicraft.Extensions.Mathematics;
 
-namespace MinecraftLike
+namespace Unicraft.Core.Jobs
 {
 
     public struct ChunkBlockGeneratorJob : IJobParallelFor

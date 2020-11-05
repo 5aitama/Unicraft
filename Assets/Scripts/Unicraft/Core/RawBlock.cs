@@ -1,4 +1,4 @@
-namespace MinecraftLike
+namespace Unicraft.Core
 {
     public struct RawBlock
     {

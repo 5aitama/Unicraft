@@ -2,7 +2,9 @@ using Unity.Jobs;
 using Unity.Burst;
 using Unity.Collections;
 
-namespace MinecraftLike
+using Unicraft.Core.Geometry;
+
+namespace Unicraft.Core.Jobs
 {
     [BurstCompile]
     public struct ChunkTriangleCorrectionJob : IJobParallelFor, IQuickJob

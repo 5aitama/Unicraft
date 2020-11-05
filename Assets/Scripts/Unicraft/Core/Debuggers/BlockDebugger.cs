@@ -1,7 +1,10 @@
 using Unity.Collections;
 using Unity.Mathematics;
 
-namespace MinecraftLike
+using Unicraft.Core.Jobs;
+using Unicraft.Core.Geometry;
+
+namespace Unicraft.Core.Debugger
 {
     public class BlockDebugger : Debugger
     {

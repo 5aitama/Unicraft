@@ -1,11 +1,14 @@
 using UnityEngine;
+
+using Unity.Jobs;
 using Unity.Collections;
 using Unity.Mathematics;
 
-using MinecraftLike.Extensions.Mathematics;
-using Unity.Jobs;
+using Unicraft.Core.Jobs;
+using Unicraft.Core.Geometry;
+using Unicraft.Extensions.Mathematics;
 
-namespace MinecraftLike
+namespace Unicraft.Core
 {
     [RequireComponent(typeof(MeshFilter), typeof(MeshCollider), typeof(MeshRenderer))]
     public class Chunk : MonoBehaviour 

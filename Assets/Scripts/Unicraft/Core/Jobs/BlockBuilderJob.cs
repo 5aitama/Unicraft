@@ -4,7 +4,9 @@ using Unity.Collections;
 using Unity.Mathematics;
 using Unity.Collections.LowLevel.Unsafe;
 
-namespace MinecraftLike
+using Unicraft.Core.Geometry;
+
+namespace Unicraft.Core.Jobs
 {
     [BurstCompile]
     public struct BlockBuilderJob : IJobParallelFor, IQuickJob

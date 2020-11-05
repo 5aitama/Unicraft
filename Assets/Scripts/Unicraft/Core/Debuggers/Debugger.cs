@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MinecraftLike
+namespace Unicraft.Core.Debugger
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter), typeof(MeshCollider))]

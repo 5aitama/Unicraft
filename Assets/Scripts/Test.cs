@@ -1,6 +1,8 @@
 using UnityEngine;
 using Unity.Mathematics;
 
+using Unicraft.Core;
+
 namespace MinecraftLike
 {
     public class Test : MonoBehaviour
