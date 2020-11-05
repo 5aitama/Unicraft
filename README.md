@@ -1,6 +1,8 @@
 # Minecraft Like
 
 ![Unity version](https://img.shields.io/badge/Unity-2020.1.9f1-green)
+![GitHub contributors](https://img.shields.io/github/contributors/5aitama/Unicraft)
+![GitHub last commit](https://img.shields.io/github/last-commit/5aitama/Unicraft)
 
 ## Description
 
