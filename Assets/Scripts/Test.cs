@@ -21,6 +21,12 @@ namespace MinecraftLike
                 
                 // And that's it :) you have created a chunk!!!!
             }
+
+            if(Input.GetKeyDown(KeyCode.P))
+                for(var x = 0; x < 16; x++)
+                    for(var y = 0; y < 16; y++)
+                        if(GameManager.World.CreateChunk(at: new int3(x, 0, y) * GameManager.ChunkSize))
+                            GameManager.World.ConstructChunk(at: new int3(x, 0, y) * GameManager.ChunkSize);
         }
     }
 }

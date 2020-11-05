@@ -5,6 +5,8 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/5aitama/Unicraft)
 ![GitHub issues](https://img.shields.io/github/issues-raw/5aitama/Unicraft)
 
+![](screenshot.png)
+
 ## Description
 
 This is a multi-threaded minecraft-like game created with the Unity game engine. The purpose is to play with low-level issues like chunk creation and rendering optimization, striving for maximum performance.
