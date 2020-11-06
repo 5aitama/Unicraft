@@ -15,18 +15,26 @@ namespace MinecraftLike
                 var position = new int3(0, 0, 0);
 
                 // Create chunk...
-                if(GameManager.World.CreateChunk(at: position))
-                    // Construct it...
-                    GameManager.World.ConstructChunk(at: position);
+                GameManager.World.CreateChunk(at: position);
+                // Update it...
+                GameManager.World.UpdateChunk(at: position);
                 
                 // And that's it :) you have created a chunk!!!!
             }
 
             if(Input.GetKeyDown(KeyCode.P))
+            {
                 for(var x = 0; x < 16; x++)
+                {
                     for(var y = 0; y < 16; y++)
-                        if(GameManager.World.CreateChunk(at: new int3(x, 0, y) * GameManager.ChunkSize))
-                            GameManager.World.ConstructChunk(at: new int3(x, 0, y) * GameManager.ChunkSize);
+                    {
+                        GameManager.World.CreateChunk(at: new int3(x, 0, y) * GameManager.ChunkSize);
+                        GameManager.World.UpdateChunk(at: new int3(x, 0, y) * GameManager.ChunkSize);
+                    }
+                }
+
+                GameManager.World.DestroyChunk(new int3(0, 0, 0));
+            }
         }
     }
 }

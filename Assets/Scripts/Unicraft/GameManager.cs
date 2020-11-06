@@ -7,7 +7,7 @@ namespace Unicraft.Core
     {
         public static int3 ChunkSize { get; private set; }
         public static Material ChunkMaterial { get; private set; }
-        public static World World { get; private set; }
+        public static World<DefaultChunkManager> World { get; private set; }
 
         public int3 chunkSize;
         public Material chunkMaterial;
@@ -15,7 +15,10 @@ namespace Unicraft.Core
 
         private void Awake()
         {
-            World = new World(maxScheduledChunksPerFrame);
+            if(World != null)
+                World.Destroy();
+            
+            World = new World<DefaultChunkManager>(maxScheduledChunksPerFrame);
         }
 
         public void OnAfterDeserialize()
