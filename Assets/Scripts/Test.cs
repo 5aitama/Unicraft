@@ -34,6 +34,8 @@ namespace MinecraftLike
                 }
 
                 GameManager.World.DestroyChunk(new int3(0, 0, 0));
+                GameManager.World.CreateChunk(new int3(-1, 0, 0)*  GameManager.ChunkSize);
+                GameManager.World.UpdateChunk(new int3(-1, 0, 0)*  GameManager.ChunkSize);
             }
         }
     }

@@ -25,10 +25,10 @@ namespace Unicraft.Core
             ChunkManager.EnqueueCommandBuffer(new ChunkCommandBuffer(at, ChunkCommand.Update));
 
         public void Update()
-        {
+        {   
             ChunkManager.CheckAndCompleteScheduledChunks();
-            
-            if(ChunkManager.AmountOfCommandBuffers > 0)
+
+            while(ChunkManager.AmountOfCommandBuffers > 0)
             {
                 var ccb = ChunkManager.GetChunkCommandBuffer();
 
@@ -46,6 +46,8 @@ namespace Unicraft.Core
                     default: 
                         break;
                 }
+
+                ChunkManager.CheckAndCompleteScheduledChunks();
             }
         }
 

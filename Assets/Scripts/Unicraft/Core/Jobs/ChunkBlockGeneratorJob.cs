@@ -43,8 +43,8 @@ namespace Unicraft.Core.Jobs
             var n = (1f + noise.snoise(pos * 0.01f)) * .5f * 32;
             value = n - worldPos.y;
 
-            if(minEdges.x || minEdges.y || minEdges.z || maxEdges.x || maxEdges.y || maxEdges.z)
-                value = -1;
+            // if(minEdges.x || minEdges.y || minEdges.z || maxEdges.x || maxEdges.y || maxEdges.z)
+            //     value = -1;
             
             blocks[index] = new RawBlock
             {

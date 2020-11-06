@@ -20,6 +20,8 @@ namespace Unicraft.Core
         /// </summary>
         protected Queue<ChunkCommandBuffer> ChunkCommandBuffers { get; set; } = new Queue<ChunkCommandBuffer>();
 
+        protected NativeList<ChunkCommandBuffer> CacheChunkCommandBuffers { get; private set; } = new NativeList<ChunkCommandBuffer>(Allocator.Persistent);
+
         /// <summary>
         /// HashSet that store world position of chunks that would be used in threads.
         /// </summary>
@@ -52,9 +54,20 @@ namespace Unicraft.Core
                 return;
             }
 
-            var chunk = new GameObject($"Chunk {ccb.ChunkPosition}").AddComponent<Chunk>();
-            chunk.transform.position = (float3)ccb.ChunkPosition;
-            Chunks.Add(ccb.ChunkPosition, chunk);
+            if(DestroyedChunks.Count > 0)
+            {
+                var destroyedChunk = DestroyedChunks.Pop();
+                destroyedChunk.name = $"Chunk {ccb.ChunkPosition}";
+                destroyedChunk.transform.position = (float3)ccb.ChunkPosition;
+                destroyedChunk.gameObject.SetActive(true);
+                Chunks.Add(ccb.ChunkPosition, destroyedChunk);
+            }
+            else
+            {
+                var chunk = new GameObject($"Chunk {ccb.ChunkPosition}").AddComponent<Chunk>();
+                chunk.transform.position = (float3)ccb.ChunkPosition;
+                Chunks.Add(ccb.ChunkPosition, chunk);
+            }
         }
 
         /// <summary>
@@ -71,13 +84,14 @@ namespace Unicraft.Core
 
             if(UsedChunks.Contains(ccb.ChunkPosition))
             {
-                ChunkCommandBuffers.Enqueue(ccb);
+                EnqueueCacheCommandBuffer(ccb);
             }
             else
             {
                 var chunk = GetChunkAt(ccb.ChunkPosition);
                 chunk.gameObject.SetActive(false);
                 DestroyedChunks.Push(chunk);
+                Chunks.Remove(ccb.ChunkPosition);
             }
         }
 
@@ -90,6 +104,12 @@ namespace Unicraft.Core
             if(!HasChunkAt(ccb.ChunkPosition))
             {
                 Debug.LogWarning($"Can't update chunk because there is no chunk at this position : {ccb.ChunkPosition}");
+                return;
+            }
+
+            if(UsedChunks.Contains(ccb.ChunkPosition))
+            {
+                EnqueueCacheCommandBuffer(ccb);
                 return;
             }
 
@@ -117,6 +137,11 @@ namespace Unicraft.Core
                     ScheduledChunks.RemoveAt(i);
                 }
             }
+
+            for(var i = 0; i < CacheChunkCommandBuffers.Length; i++)
+                EnqueueCommandBuffer(CacheChunkCommandBuffers[i]);
+
+            CacheChunkCommandBuffers.Clear();
         }
 
         /// <summary>
@@ -125,6 +150,9 @@ namespace Unicraft.Core
         /// <param name="ccb">The chunk command buffer that would be enqeued</param>
         public virtual void EnqueueCommandBuffer(in ChunkCommandBuffer ccb) =>
             ChunkCommandBuffers.Enqueue(ccb);
+
+        protected void EnqueueCacheCommandBuffer(in ChunkCommandBuffer ccb) =>
+            CacheChunkCommandBuffers.Add(ccb);
 
         /// <summary>
         /// Check if there is a chunk at <paramref name="position"/>
@@ -156,6 +184,7 @@ namespace Unicraft.Core
 
         public void Dispose()
         {
+            CacheChunkCommandBuffers.Dispose();
             UsedChunks.Dispose();
         }
     }
