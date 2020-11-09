@@ -40,8 +40,9 @@ namespace Unicraft.Core.Jobs
             var value = 0f;
 
             var pos = (float2)(localPos + position).xz;
+            var n1 = ((1f + noise.snoise((float3)(localPos + position) * 0.025f)) / 2f) * 6f;
             var n = (1f + noise.snoise(pos * 0.01f)) * .5f * 32;
-            value = n - worldPos.y;
+            value = n - worldPos.y - n1;
 
             // if(minEdges.x || minEdges.y || minEdges.z || maxEdges.x || maxEdges.y || maxEdges.z)
             //     value = -1;

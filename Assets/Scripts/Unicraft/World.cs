@@ -28,7 +28,9 @@ namespace Unicraft.Core
         {   
             ChunkManager.CheckAndCompleteScheduledChunks();
 
-            while(ChunkManager.AmountOfCommandBuffers > 0)
+            var maxCommandBuffersPerFrames = 4;
+            var commandBufferExecuted = 0;
+            while(ChunkManager.AmountOfCommandBuffers > 0 && commandBufferExecuted < maxCommandBuffersPerFrames)
             {
                 var ccb = ChunkManager.GetChunkCommandBuffer();
 
@@ -47,7 +49,7 @@ namespace Unicraft.Core
                         break;
                 }
 
-                ChunkManager.CheckAndCompleteScheduledChunks();
+                commandBufferExecuted++;
             }
         }
 

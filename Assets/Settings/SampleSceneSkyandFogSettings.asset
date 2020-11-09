@@ -133,7 +133,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   skyType:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   skyAmbientMode:
     m_OverrideState: 0
     m_Value: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 250
+    m_Value: 117.1
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1

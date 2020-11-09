@@ -37,3 +37,13 @@ Load the folder `minecraft-like` in Unity or Unity Hub. You're good to go!
 ## Challenges
 
 So many of them!
+
+## Notes
+
+* ### Improve perfs of Endless system.
+    
+    Actually Endless system take **~6ms** per frames to know where a chunk need to be Destroy / Create / Keep for  **1024 chunks** (32x32 grid). 
+    
+    I think we can improve perf with **Unity Job System** maybe.
+
+    ![](performance_LI.jpg)

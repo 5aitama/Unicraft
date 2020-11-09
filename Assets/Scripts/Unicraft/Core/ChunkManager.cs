@@ -57,6 +57,7 @@ namespace Unicraft.Core
             if(DestroyedChunks.Count > 0)
             {
                 var destroyedChunk = DestroyedChunks.Pop();
+                destroyedChunk.ClearMesh();
                 destroyedChunk.name = $"Chunk {ccb.ChunkPosition}";
                 destroyedChunk.transform.position = (float3)ccb.ChunkPosition;
                 destroyedChunk.gameObject.SetActive(true);
@@ -127,6 +128,7 @@ namespace Unicraft.Core
 
         public virtual void CheckAndCompleteScheduledChunks()
         {
+            
             for(int i = 0, c = 0; i < ScheduledChunks.Count && c < MaxChunksConstructPerFrames; i++, c++)
             {
                 if(ScheduledChunks[i].Item2.IsCompleted)
@@ -134,7 +136,7 @@ namespace Unicraft.Core
                     ScheduledChunks[i].Item2.Complete();
                     Chunks[ScheduledChunks[i].Item1].FinalizeConstructGeometry();
                     UsedChunks.Remove(ScheduledChunks[i].Item1);
-                    ScheduledChunks.RemoveAt(i);
+                    ScheduledChunks.Remove(ScheduledChunks[i]);
                 }
             }
 
@@ -184,6 +186,16 @@ namespace Unicraft.Core
 
         public void Dispose()
         {
+            for(int i = 0; i < ScheduledChunks.Count; i++)
+            {
+                ScheduledChunks[i].Item2.Complete();
+                Chunks[ScheduledChunks[i].Item1].Dispose();
+            }
+
+            // for(int i = 0; i < ScheduledChunks.Count; i++)
+            // {
+            // }
+
             CacheChunkCommandBuffers.Dispose();
             UsedChunks.Dispose();
         }
