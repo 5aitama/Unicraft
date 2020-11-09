@@ -36,4 +36,9 @@ Load the folder `minecraft-like` in Unity or Unity Hub. You're good to go!
 
 ## Challenges
 
-So many of them!
+- Memory leaks for difficult memory cleaning. We decided to bypass the garbage collector for performance purposes
+- Bad performance beyond 1024 chunks per frame
+
+# Todo
+
+Refactor the chunk manager.
